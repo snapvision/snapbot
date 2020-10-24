@@ -1,0 +1,61 @@
+<head>
+<title>Snapvision - Asti Infotech</title>
+</head>
+<script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+<style>
+  df-messenger {
+   --df-messenger-button-titlebar-color: #1c5ceb;
+   --df-messenger-chat-background-color: #fafafa;
+   --df-messenger-send-icon: #878fac;
+   --df-messenger-user-message: #F9FFEB;
+  }
+</style>
+<body oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
+<df-messenger
+  intent="WELCOME"
+  chat-title="Snapvision - Asti Demo"
+  chat-icon="https://media-exp1.licdn.com/dms/image/C4E03AQEq4lkLMj0uMQ/profile-displayphoto-shrink_800_800/0?e=1608768000&v=beta&t=D1H5TPUSKJ0hW41wiIoHPKPxl8oDyXjHJ1xB_xrD-zk"
+  agent-id="f2223211-d0f3-4bf9-9061-7d2f134876ce"
+  language-code="en"
+></df-messenger>
+
+<script>
+	document.onkeydown = function(e) {
+			if (e.ctrlKey && 
+				(e.keyCode === 67 || 
+				 e.keyCode === 86 || 
+				 e.keyCode === 85 || 
+				 e.keyCode === 117)) {
+				return false;
+			} else {
+				return true;
+			}
+	};
+	function disableClick(){ 
+        document.onclick=function(event){ 
+          if (event.button == 2) { 
+            alert('Right Click Message'); 
+            return false; 
+          } 
+        } 
+    } 
+	  
+	const dfMessenger = document.querySelector('df-messenger');
+	const payload = [
+	  {
+		"type": "info",
+		"title": "Info item title",
+		"subtitle": "Info item subtitle",
+		"image": {
+		  "src": {
+			"rawUrl": "https://example.com/images/logo.png"
+		  }
+		},
+		"actionLink": "https://example.com"
+	  }];
+	
+	dfMessenger.addEventListener('df-chip-clicked', function (event) {
+		//dfMessenger.renderCustomCard(payload);
+	});
+</script>
+</body>
